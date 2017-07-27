@@ -7,15 +7,19 @@
     <h2>Cadastrar Artigo</h2>
   </div>
 
+  <div [hidden]='!alertaSucesso' class="alert alert-success" role="alert">
+    Pergunta cadastrada com <strong>Sucesso!</strong>.
+  </div>
+
   <div class="page-header no-padding">
     <div class="input-group no-padding">
       <span class="input-group-addon " id="basic-addon1">Titulo</span>
-      <input type="text" class="form-control" placeholder="digite o titulo do artigo" aria-describedby="basic-addon1">
+      <input [(ngModel)]="pergunta" type="text" class="form-control" placeholder="digite o titulo do artigo" aria-describedby="basic-addon1">
     </div>
   </div>
 
   <div class="no-margin " style="border-radius: 5px">
-    <p-editor [style]="{'height':'320px'}"></p-editor>
+    <p-editor [(ngModel)]="resposta" [style]="{'height':'320px'}"></p-editor>
   </div>
 
   <cite>
@@ -26,7 +30,7 @@
   </cite>
 
   <div style="margin-top: 10px">
-    <button type="button" class="btn btn-success"><i class="fa fa-plus-square" aria-hidden="true"></i> Cadastrar</button>
+    <button (click)="salvarQna()" type="button" class="btn btn-success"><i class="fa fa-plus-square" aria-hidden="true"></i> Cadastrar</button>
     <button type="button" class="btn btn-success"><i class="fa fa-pencil" aria-hidden="true"></i> Editar</button>
   </div>
 
